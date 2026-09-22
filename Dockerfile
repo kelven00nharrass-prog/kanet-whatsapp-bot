@@ -42,12 +42,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Variáveis de ambiente para Puppeteer / Chrome e Hugging Face Spaces (Porta 7860)
+# Variáveis de ambiente para Puppeteer / Chrome
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium \
     CHROME_PATH=/usr/bin/chromium \
     NODE_ENV=production \
-    PORT=7860
+    PORT=10000
 
 WORKDIR /app
 
@@ -61,12 +61,12 @@ RUN npm install --omit=dev && npm cache clean --force
 # Copiar os ficheiros do projeto
 COPY . .
 
-# Expor porta 7860 exigida pelo Hugging Face Spaces
-EXPOSE 7860 3000
+# Expor porta
+EXPOSE 10000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:7860/health || curl -f http://localhost:3000/ || exit 0
+    CMD curl -f http://localhost:10000/health || curl -f http://localhost:10000/ || exit 0
 
 # Iniciar o bot com PM2
 CMD ["pm2-runtime", "kanet-loader.js", "--name", "kanet-bot"]
