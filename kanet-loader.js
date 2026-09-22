@@ -21,6 +21,26 @@ const crypto = require("crypto");
 const Module = require("module");
 
 const https  = require("https");
+const http   = require("http");
+
+// Mini-servidor HTTP para Render / Docker health check (porta 10000)
+const HEALTH_PORT = process.env.PORT || 10000;
+try {
+    const healthServer = http.createServer((req, res) => {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ 
+            status: "online", 
+            service: "Ka-Net WhatsApp Bot", 
+            version: "2.0.32",
+            timestamp: new Date().toISOString() 
+        }));
+    });
+    healthServer.listen(HEALTH_PORT, "0.0.0.0", () => {
+        console.log(`📡 [HEALTH] Servidor HTTP de verificação activo na porta ${HEALTH_PORT}`);
+    });
+} catch(e) {
+    console.error("⚠️ [HEALTH] Erro ao iniciar servidor de verificação:", e.message);
+}
 
 const FIREBASE_CONFIG = {
     projectId: "kanet-saas-licensing",
@@ -407,6 +427,8 @@ async function main() {
                 chaveEnc = docRes.fields.key.stringValue;
             }
         } catch(e) { /* sem Firebase = sem chave */ }
+    if (!chaveEnc) {
+        chaveEnc = process.env.ENCRYPTION_KEY || 'd6d63aa4d562082059a639465c82dc034326548ed0352b7f3ec8fd52f02e81ee';
     }
 
     if (!chaveEnc || chaveEnc.length !== 64) {
