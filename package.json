@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@open-wa/wa-automate": "^4.76.0",
+    "adbkit": "^2.11.1",
+    "archiver": "^8.0.0",
+    "async-lock": "^1.4.1",
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.6",
+    "express": "^4.22.1",
+    "figlet": "^1.9.4",
+    "firebase": "^12.15.0",
+    "firebase-admin": "^14.4.0",
+    "p-limit": "^7.2.0",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^5.5.0",
+    "pkg": "^5.8.1"
+  }
+}
