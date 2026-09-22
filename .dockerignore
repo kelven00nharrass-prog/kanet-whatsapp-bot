@@ -1,0 +1,98 @@
+# ===== NODE =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===== BASES DE DADOS LOCAIS =====
+*.sqlite
+*.db
+referencias.db
+referencias_k.db
+
+# ===== LOGS =====
+*.log
+*.txt
+bot_log.txt
+bot_run*.txt
+bot_err.txt
+err_*.txt
+out_*.txt
+proxy_*_log.txt
+proxy_*_err.txt
+
+# ===== BACKUPS E DUPLICADOS =====
+*.bak
+*.bak_autofix
+*_BACKUP.*
+*_BEFORE_FIX.*
+
+# ===== FICHEIROS DE BUILD LOCAL =====
+dist-encrypted/
+dist-exe/
+dist-exe-enc-src/
+dist-protegido/
+dist-encrypted.zip
+
+# ===== APKs E EXECUTÁVEIS GRANDES =====
+*.apk
+*.exe
+*.msi
+*.zip
+
+# ===== CAPTURAS DE ECRÃ E IMAGENS TEMPORÁRIAS =====
+fail_send_input_*.png
+fail_send_input_*.xml
+final_state_*.png
+final_state_*.xml
+screenshot_*.png
+hierarchy.xml
+sim_tracker_*.xml
+
+# ===== PASTAS DESNECESSÁRIAS NO SERVIDOR =====
+scrcpy-win64-v2.4/
+KaNet_Revendedor_*/
+KaNet-Admin-Master/
+_IGNORE_*/
+__pycache__/
+scratch/
+
+# ===== SESSÕES LOCAIS =====
+_IGNORE_GROSSISTAS_SESSION_*/
+_IGNORE_MEF_INSTANT/
+_IGNORE_FORNEC_INSTANT/
+auth_info_baileys/
+
+# ===== FICHEIROS PESSOAIS/ACADÉMICOS =====
+*.docx
+*.pptx
+*.pdf
+*.xlsx
+Apresentacao_*
+Compendio_*
+MANUAL_*
+Trabalho_*
+Resumo_*
+Teste_*
+
+# ===== OUTROS =====
+.DS_Store
+.node-persist/
+windows_dump.txt
+windows_positions_dump.txt
+Erro.txt
+bot_err.txt
+*.lock
+system_lock.json
+
+# ===== TESSERACT DATA (muito pesado) =====
+eng.traineddata
+por.traineddata
+
+# ===== FICHEIROS .py (scripts locais) =====
+*.py
+*.py.bak
+
+# ===== GIT =====
+.git/
+.gitignore
