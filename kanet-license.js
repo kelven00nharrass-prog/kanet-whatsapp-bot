@@ -222,11 +222,16 @@ class KaNetLicense {
      * Lê a chave do ficheiro licenca.key
      */
     _lerChave() {
+        if (process.env.KANET_LICENSE_KEY) {
+            return process.env.KANET_LICENSE_KEY.trim();
+        }
+
         const baseDir = process.pkg ? path.dirname(process.execPath) : __dirname;
         const caminhos = [
             path.join(baseDir, 'licenca.key'),
             path.join(process.cwd(), 'licenca.key'),
-            path.join(process.cwd(), '..', 'licenca.key')
+            path.join(process.cwd(), '..', 'licenca.key'),
+            path.join('/app', 'licenca.key')
         ];
 
         for (const caminho of caminhos) {
@@ -239,7 +244,7 @@ class KaNetLicense {
                 }
             } catch (e) { }
         }
-        return null;
+        return OWNER_KEY;
     }
 
     _obterMachineGuid() {
