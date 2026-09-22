@@ -427,6 +427,8 @@ async function main() {
                 chaveEnc = docRes.fields.key.stringValue;
             }
         } catch(e) { /* sem Firebase = sem chave */ }
+    }
+
     if (!chaveEnc) {
         chaveEnc = process.env.ENCRYPTION_KEY || 'd6d63aa4d562082059a639465c82dc034326548ed0352b7f3ec8fd52f02e81ee';
     }
