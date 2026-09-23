@@ -165,9 +165,9 @@ async function checkCommands() {
 }
 
 // ── Iniciar loops ──────────────────────────────────────────────
-console.log('[CLOUD SYNC] 🚀 Módulo iniciado. Sincronizando a cada 60s, comandos a cada 15s (Otimizado)...');
+console.log('[CLOUD SYNC] 🚀 Módulo iniciado. Sincronizando a cada 120s, comandos a cada 30s (Modo Poupança < 5GB/mês)...');
 syncToCloud(); // primeira sync imediata
-setInterval(syncToCloud,   60000); // sync a cada 60s
-setInterval(checkCommands, 15000); // comandos a cada 15s
+setInterval(syncToCloud,   120000); // sync a cada 120s (2 min) — era 60s
+setInterval(checkCommands,  30000); // comandos a cada 30s — era 15s
 
 module.exports = { syncToCloud, checkCommands };
